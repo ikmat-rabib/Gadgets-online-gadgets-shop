@@ -1,8 +1,11 @@
+import Banner from "../../Components/Banner/Banner";
+import OurBrands from "../../Components/OurBrands/OurBrands";
 
 const Homepage = () => {
     return (
         <div>
-            <h2>hoiiiiiiiii</h2>
+            <Banner></Banner>
+            <OurBrands></OurBrands>
         </div>
     );
 };

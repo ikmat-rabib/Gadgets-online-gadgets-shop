@@ -12,14 +12,31 @@ import Login from './Pages/Login/Login';
 import Registration from './Pages/Registration/Registration';
 import Cart from './Pages/Cart/Cart';
 import ErrorPage from './Pages/ErrorPage/ErrorPage';
+import Root from './Components/Root/Root';
+import BrandItems from './Pages/BrandItems/BrandItems';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage></Homepage>,
+    element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      {
+        path: "/",
+        element: <Homepage></Homepage>,
+        loader: () => fetch('http://localhost:5000/brands')
+      },
+      {
+        path: "/brand/:id",
+        element: <BrandItems></BrandItems>,
+        loader: () => fetch('http://localhost:5000/brands')
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails></ProductDetails> ,
+      },
       {
         path: "/add-product",
         element: <AddProductPage></AddProductPage>,
