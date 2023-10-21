@@ -1,23 +1,24 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Slider from "../../Components/Slider/Slider";
+import ProductCard from "../../Components/ProductCard/ProductCard";
 
 
 const BrandItems = () => {
 
-    const brands = useLoaderData()
-    const { id } = useParams()
-    const idInt = parseInt(id)
+    const products = useLoaderData()
+    const { brandName } = useParams()
 
-    const brand = brands.find(brand => brand._id === idInt)
-    console.log( brand, id );
+    const allProduct = products.filter(product => product.brand === brandName)
+    console.log( allProduct );
 
-    // const { brandName, brandImage} = brand
 
     return (
         <div>
             <Slider></Slider>
-            <h2>sdfbxfghfgjghm {brand}</h2>
-            {/* <h2>grtgrt {brand.brandName}</h2> */}
+            <h2 className="text-4xl font-bold text-center"> {brandName}</h2>
+            {
+                allProduct.map(displayProduct => <ProductCard key={displayProduct._id} displayProduct={displayProduct}></ProductCard>)
+            }
         </div>
     );
 };

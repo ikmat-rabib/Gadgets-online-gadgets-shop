@@ -1,17 +1,21 @@
 import { useContext, useState } from "react";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { toast } from "react-toastify";
+import { FaGoogle } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 
 
-const Registration = () => {
+const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
-    const [registerError, setRegisterError] = useState();
-    const [success, setSuccess] = useState();
+    const { createUser, handleGoogleSignIn } = useContext(AuthContext)
+    
+    const [registerError, setRegisterError] = useState('')
+    const [success, setSuccess] = useState('')
 
-    // const navigate = useNavigate()
+    console.log(success);
+
+    const navigate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault();
@@ -37,7 +41,7 @@ const Registration = () => {
         setRegisterError('');
         setSuccess('');
 
-        createUser(email, password, name, photo)
+        createUser(email, password)
             .then(result => {
                 console.log(result.user)
                 setSuccess('Registration Successful')
@@ -46,8 +50,8 @@ const Registration = () => {
                     displayName: name,
                     photoURL: photo
                 })
-                    .then()
-                    .catch()
+                .then()
+                .catch()
 
                 toast.success('Registration Successful', {
                     position: "top-center",
@@ -58,48 +62,46 @@ const Registration = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                });
-                // navigate('/')
+                    });
+                navigate('/')
             })
             .catch(error => {
                 console.error(error)
                 setRegisterError(error.message);
             })
-
     }
 
-
     return (
-        <div >
-            <div className="py-32 ">
-                <div className="sm:w-auto md:w-2/4 mx-auto text-center text-black drop-shadow-2xl bg-slate-50 rounded-xl py-6 my-10">
+        <div>
+            <div className="py-32  ">
+                <div className="sm:w-auto md:w-2/4 mx-auto text-center text-black bg-slate-200 drop-shadow-2xl rounded-2xl py-6 my-10">
                     <h2 className="text-3xl mt-6 font-bold">Please Register</h2>
                     <form onSubmit={handleRegister} className="card-body md:w-mx-auto">
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-black">Name</span>
+                                <span className="label-text text-white">Name</span>
                             </label>
                             <input type="text" name="name" placeholder="Name" className="input input-bordered text-black" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-black label-text ">Photo URL</span>
+                                <span className="text-white label-text ">Photo URL</span>
                             </label>
                             <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered text-black" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-black label-text">Email</span>
+                                <span className="text-white label-text">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="Email" className="input input-bordered text-black" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="text-black label-text">Password</span>
+                                <span className="text-white label-text">Password</span>
                             </label>
                             <input type="password" name="password" placeholder="password" className="input input-bordered text-black" required />
 
@@ -111,21 +113,21 @@ const Registration = () => {
 
 
                         <div className="form-control mt-6">
-                            <button type="submit" className="btn bg-[#aaff03] hover:bg-[#76b300] text-black border-0 ">Register</button>
+                            <button type="submit" className="btn bg-[#aaff03] hover:bg-[#76b300] text-indigo-800 border-0 ">Register</button>
                         </div>
                     </form>
-                    <p className="mb-">Already have an account? <Link className="text-green-600 font-bold" to='/login'>Login Here.</Link></p>
+                    <p className="mb-">Already have an account? <Link className=" font-bold" to='/login'>Login Here.</Link></p>
 
                     <div>
                         <p>or,</p>
                         <h3 className="text-2xl font-semibold">Sign in with</h3>
-                        <button className="p-3 my-3 text-3xl border rounded-lg bg-[#aaff03] hover:bg-[#76b300] text-black"> </button>
+                        <button onClick={handleGoogleSignIn} className="p-3 my-3 text-3xl border rounded-lg bg-[#aaff03] hover:bg-[#76b300] text-indigo-800"> <FaGoogle></FaGoogle> </button>
                     </div>
                 </div>
-
+                
             </div>
         </div>
     );
 };
 
-export default Registration;
+export default Register;

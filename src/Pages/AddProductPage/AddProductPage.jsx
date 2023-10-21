@@ -44,8 +44,8 @@ const AddProductPage = () => {
     }
 
     return (
-        <div className="max-w-screen-lg mx-auto ">
-            <h2 className="text-3xl font-bold text-center md:mt-10">product add here</h2>
+        <div className="max-w-screen-lg mx-auto my-10 p-6 rounded-xl bg-slate-100 drop-shadow-2xl">
+            <h2 className="text-3xl font-bold text-center ">Add Product Here</h2>
             <form onSubmit={handleAddProduct} className="card-body">
 
                 {/* name */}
