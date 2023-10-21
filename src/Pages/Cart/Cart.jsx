@@ -3,7 +3,9 @@
 const Cart = () => {
     return (
         <div>
-            <h2>cartjjjjjjjjj</h2>
+            <div className="my-10">
+                <h2 className="text-center text-2xl font-bold">cart</h2>
+            </div>
         </div>
     );
 };

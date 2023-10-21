@@ -15,10 +15,14 @@ const BrandItems = () => {
     return (
         <div>
             <Slider></Slider>
-            <h2 className="text-4xl font-bold text-center"> {brandName}</h2>
+            <h2 className="text-4xl my-10 font-bold text-center"> {brandName}</h2>
+            <div className="grid grid-cols-2 max-w-6xl mx-auto gap-10">
             {
-                allProduct.map(displayProduct => <ProductCard key={displayProduct._id} displayProduct={displayProduct}></ProductCard>)
+                allProduct.length?  allProduct.map(displayProduct => <ProductCard key={displayProduct._id} displayProduct={displayProduct}></ProductCard>)
+                : 
+                <h2 className="text-4xl font-medium text-center my-10">Sorry! No Product here.</h2>
             }
+            </div>
         </div>
     );
 };
