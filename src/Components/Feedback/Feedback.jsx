@@ -3,7 +3,7 @@
 const AboutUs = () => {
     return (
         <div className="max-w-screen-xl mx-auto">
-            <div className="card lg:card-side bg-base-100 shadow-xl">
+            <div className="card lg:card-side my-10 shadow-xl">
                 <figure className="w-1/"><img src="https://i.ibb.co/cwX6ssk/About-Us.jpg" alt="" /></figure>
                 <div className="card-body text-center">
                     <h2 className="card-title justify-center">About Us</h2>

@@ -63,7 +63,7 @@ const Login = () => {
                 progress: undefined,
                 theme: "colored",
                 })
-            navigate(location?.state ? location.state : '/')
+            navigate(location?.state ? location?.state : '/')
         })
        
     }

@@ -16,14 +16,14 @@ const Slider = () => {
            slidesPerView={1}
            navigation={true}
            pagination={{ clickable: true }}
-           scrollbar={{ draggable: true }}
+        //    scrollbar={{ draggable: true }}
            autoplay={{
             delay: 2000,
             disableOnInteraction: false,
           }}
             
         >
-            <SwiperSlide ><img className='h-1/2 ' src="https://i.ibb.co/JqCSxzQ/slider-1.png" alt="" /></SwiperSlide>
+            <SwiperSlide><img src="https://i.ibb.co/JqCSxzQ/slider-1.png" alt="" /></SwiperSlide>
             <SwiperSlide><img src="https://i.ibb.co/xzz8rQw/slider-2.png" alt="" /></SwiperSlide>
             <SwiperSlide><img src="https://i.ibb.co/cwYXVJH/slider-3.png" alt="" /></SwiperSlide>
             ...

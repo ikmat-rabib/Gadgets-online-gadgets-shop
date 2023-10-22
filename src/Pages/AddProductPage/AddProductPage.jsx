@@ -44,14 +44,14 @@ const AddProductPage = () => {
     }
 
     return (
-        <div className="max-w-screen-lg mx-auto my-10 p-6 rounded-xl bg-slate-100 drop-shadow-2xl">
+        <div className="max-w-screen-lg mx-auto my-10 p-6 glass rounded-xl text-black dark:text-white drop-shadow-2xl">
             <h2 className="text-3xl font-bold text-center ">Add Product Here</h2>
             <form onSubmit={handleAddProduct} className="card-body">
 
                 {/* name */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Product Name</span>
+                        <span className="label-text dark:text-white">Product Name</span>
                     </label>
                     <input type="text" name="name" placeholder="Product" className="input input-bordered" required />
                 </div>
@@ -59,7 +59,7 @@ const AddProductPage = () => {
                 {/* image */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Product Image</span>
+                        <span className="label-text dark:text-white">Product Image</span>
                     </label>
                     <input type="text" name="image" placeholder="Product Image" className="input input-bordered" required />
                 </div>
@@ -67,7 +67,7 @@ const AddProductPage = () => {
                 {/* type */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Product Type</span>
+                        <span className="label-text dark:text-white">Product Type</span>
                     </label>
                     <input type="text" name="type" placeholder="Product Type" className="input input-bordered" required />
                 </div>
@@ -75,7 +75,7 @@ const AddProductPage = () => {
                 {/* brand */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Brand Name</span>
+                        <span className="label-text dark:text-white">Brand Name</span>
                     </label>
                     <input type="text" name="brand" placeholder="Brand" className="input input-bordered" required />
                 </div>
@@ -83,7 +83,7 @@ const AddProductPage = () => {
                 {/* brand image */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Brand Image</span>
+                        <span className="label-text dark:text-white">Brand Image</span>
                     </label>
                     <input type="text" name="brandImage" placeholder="Brand Image Link" className="input input-bordered" required />
                 </div>
@@ -91,7 +91,7 @@ const AddProductPage = () => {
                 {/* price */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Price</span>
+                        <span className="label-text dark:text-white">Price</span>
                     </label>
                     <input type="text" name="price" placeholder="Price" className="input input-bordered" required />
                 </div>
@@ -99,7 +99,7 @@ const AddProductPage = () => {
                 {/* rating */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Rating</span>
+                        <span className="label-text dark:text-white">Rating</span>
                     </label>
                     <input type="text" name="rating" placeholder="Rating" className="input input-bordered" required />
                 </div>
@@ -107,13 +107,13 @@ const AddProductPage = () => {
                 {/* description */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Description</span>
+                        <span className="label-text dark:text-white">Description</span>
                     </label>
                     <textarea className="textarea textarea-bordered" name="description" id="" cols="30" rows="5"></textarea>
                 </div>
 
                 <div className="form-control mt-6">
-                    <input className="btn btn-primary" type="submit" value="Add Product" />
+                    <input className="btn bg-[#aaff03] hover:bg-[#76b300]" type="submit" value="Add Product" />
                 </div>
             </form>
         </div>

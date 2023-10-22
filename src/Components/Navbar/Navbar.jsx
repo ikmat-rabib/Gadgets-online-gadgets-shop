@@ -14,15 +14,14 @@ const Navbar = () => {
     }
 
     const navLinks = <>
-        <li className=" "><NavLink  to='/'>Home</NavLink></li>
-        <li className=" "><NavLink  to='/add-product'>Add Product</NavLink></li>
-        <li className=" "><NavLink  to='/cart'>My Cart</NavLink></li>
-        
+        <li><NavLink  to='/'>Home</NavLink></li>
+        <li><NavLink  to='/add-product'>Add Product</NavLink></li>
+        <li><NavLink  to='/cart'>My Cart</NavLink></li>
 
     </>
 
     return (
-        <div className="bg-white ">
+        <div className="">
 
             <div className="navbar  p-0 max-w-6xl mx-auto ">
                 <div className="navbar-start">
@@ -34,11 +33,11 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link to='/'><div className="text-black font-extrabold normal-case md:text-4xl ">Gadgets</div></Link>
+                    <Link to='/'><div className="text-black dark:text-white font-extrabold normal-case md:text-4xl ">Gadgets</div></Link>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal  px-1 text-black">
+                    <ul className="menu menu-horizontal dark:text-white  px-1 text-black">
                         {navLinks}
                     </ul>
                 </div>
@@ -47,7 +46,7 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="flex items-center">
-                                    <span><small className="text-black">{user.displayName}</small></span>
+                                    <span><small className="text-black dark:text-white ">{user.displayName}</small></span>
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
                                     <div className="w-10 rounded-full">
                                         <img src={user.photoURL} />
