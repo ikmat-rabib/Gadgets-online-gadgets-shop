@@ -1,17 +1,25 @@
 
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const ProductDetails = () => {
 
     const products = useLoaderData()
+
+    const {user} = useContext(AuthContext)
+    console.log(user);
+
     const { id } = useParams()
 
-    const product = products.find(product => product._id == id)
+    const product = products.find(product => product._id == id) || {}
+
+    const {name, image, type, brand, price, rating, } = product
 
     const handleAddToCart = () =>{
-        const newCart = {id}
+        const newCart = { name, image, type, brand, price, rating, email:user?.email}
         console.log(newCart);
 
         fetch('http://localhost:5000/cart', {
@@ -35,7 +43,7 @@ const ProductDetails = () => {
         })
     }
 
-    console.log(id, product);
+    // console.log(id, product);
 
     return (
         <div className="w-3/4 mx-auto my-10">

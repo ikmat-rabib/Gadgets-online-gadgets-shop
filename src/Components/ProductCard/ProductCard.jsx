@@ -15,7 +15,6 @@ const ProductCard = ({displayProduct}) => {
                 <p>Product Type: {type}</p>
                 <p>Price: {price}</p>
                 <p>Rating: {rating}</p>
-                
                 <div className="card-actions justify-center">
                     <Link to={`/product/${_id}`}>
                     <button className="btn bg-[#aaff03] hover:bg-[#76b300]">Details</button>

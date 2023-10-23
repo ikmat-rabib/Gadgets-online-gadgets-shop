@@ -8,6 +8,8 @@ const BrandItems = () => {
     const products = useLoaderData()
     const { brandName } = useParams()
 
+    console.log(brandName);
+
     const allProduct = products.filter(product => product.brand === brandName)
     console.log( allProduct );
 
