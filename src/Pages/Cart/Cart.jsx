@@ -18,7 +18,7 @@ const Cart = () => {
         <div>
             <div className=" max-w-6xl mx-auto my-10">
                 <h2 className="text-center text-3xl font-bold underline my-10">Cart</h2>
-                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {
                         selectedCart.map(displayCart => <CartCard key={displayCart._id} displayCart={displayCart}></CartCard>)
                     }

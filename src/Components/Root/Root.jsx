@@ -33,13 +33,6 @@ const Root = () => {
         setTheme(currentTheme)
     },[])
 
-    // useEffect(() => {
-    //     const currentTheme = localStorage.getItem('mode') || 'light'
-
-    //     document.documentElement.classList.add(currentTheme)
-    //     setTheme(currentTheme)
-
-    // }, [])
 
     return (
         <div className="dark:bg-slate-800 dark:text-slate-200">

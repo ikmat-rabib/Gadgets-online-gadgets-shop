@@ -14,13 +14,10 @@ const ProductCard = ({displayProduct}) => {
                 <p>Brand: {brand}</p>
                 <p>Product Type: {type}</p>
                 <p>Price: {price}</p>
-                <p>Rating: {rating}</p>
+                <p>Rating: {rating}/5</p>
                 <div className="card-actions justify-center">
                     <Link to={`/product/${_id}`}>
                     <button className="btn bg-[#aaff03] hover:bg-[#76b300]">Details</button>
-                    </Link>
-                    <Link to="/update-product">
-                    <button className="btn bg-[#aaff03] hover:bg-[#76b300]">Update</button>
                     </Link>
                 </div>
             </div>

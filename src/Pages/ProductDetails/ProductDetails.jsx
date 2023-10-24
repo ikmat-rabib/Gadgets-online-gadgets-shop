@@ -1,6 +1,6 @@
 
 import { useContext } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -9,38 +9,38 @@ const ProductDetails = () => {
 
     const products = useLoaderData()
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     console.log(user);
 
     const { id } = useParams()
 
     const product = products.find(product => product._id == id) || {}
 
-    const {name, image, type, brand, price, rating, } = product
+    const { name, image, type, brand, price, rating, _id} = product
 
-    const handleAddToCart = () =>{
-        const newCart = { name, image, type, brand, price, rating, email:user?.email}
+    const handleAddToCart = () => {
+        const newCart = { name, image, type, brand, price, rating, email: user?.email }
         console.log(newCart);
 
         fetch('http://localhost:5000/cart', {
-            method:'POST',
+            method: 'POST',
             headers: {
-                'content-type':'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(newCart)
         })
-        .then(res=>res.json())
-        .then(data=> {
-            console.log(data);
-            if (data.insertedId) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Successfully added to the Cart',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Successfully added to the Cart',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
     // console.log(id, product);
@@ -59,9 +59,15 @@ const ProductDetails = () => {
                 </div>
             </div>
             <p className="p-5">{product.description}</p>
-            <div className="flex justify-center">
+            <div className="flex flex-col mx-auto max-w-max">
                 <button onClick={handleAddToCart} className="btn bg-[#aaff03] hover:bg-[#76b300] ">Add to Cart
                 </button>
+                <br />
+                <Link to={`/update-product/${_id}`}>
+
+                    <button className="btn bg-[#aaff03] hover:bg-[#76b300] ">Update This product
+                    </button>
+                </Link>
             </div>
         </div>
     );

@@ -1,9 +1,46 @@
+import Swal from "sweetalert2";
 
 
 
 const CartCard = ({ displayCart }) => {
 
-    const { name, image, type, brand, price, rating } = displayCart
+    const { _id, name, image, type, brand, price, rating } = displayCart
+
+
+
+    const handleDelete = _id => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/cart/${_id}`, {
+                    method: "DELETE",
+
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Deleted!',
+                            'You have successfully deleted the item.',
+                            'success'
+                        )
+                        
+                    }
+                })
+                
+            }
+        })
+    }
 
     return (
 
@@ -14,9 +51,9 @@ const CartCard = ({ displayCart }) => {
                 <p>Type: {type}</p>
                 <p>Brand: {brand}</p>
                 <p>Price: {price}</p>
-                <p>Rating: {rating}</p>
+                <p>Rating: {rating}/5</p>
                 <div className="card-actions justify-center">
-                    <button className="btn bg-[#aaff03] hover:bg-[#76b300]">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn bg-[#aaff03] hover:bg-[#76b300]">Delete</button>
                 </div>
             </div>
         </div>
