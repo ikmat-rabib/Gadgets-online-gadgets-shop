@@ -21,7 +21,7 @@ const AddProductPage = () => {
 
         console.log(newProduct);
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/product', {
             method:'POST',
             headers: {
                 'content-type': 'application/json'

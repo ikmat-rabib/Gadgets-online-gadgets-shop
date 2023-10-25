@@ -22,7 +22,7 @@ const ProductDetails = () => {
         const newCart = { name, image, type, brand, price, rating, email: user?.email }
         console.log(newCart);
 
-        fetch('http://localhost:5000/cart', {
+        fetch('https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

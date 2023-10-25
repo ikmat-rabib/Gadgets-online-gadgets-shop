@@ -28,7 +28,7 @@ const UpdateProductPage = () => {
 
         console.log(updatedProduct);
 
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

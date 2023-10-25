@@ -25,17 +25,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage></Homepage>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/brands')
       },
       {
         path: "/brand/:brandName",
         element: <BrandItems></BrandItems>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/product')
       },
       {
         path: "/product/:id",
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/product')
+        loader: () => fetch('https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/product')
       },
       {
         path: "/add-product",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/update-product/:id",
         element: <PrivateRoute><UpdateProductPage></UpdateProductPage></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/product/${params.id}`)
       },
       {
         path: "/login",
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <PrivateRoute><Cart></Cart></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/cart')
+        loader: () => fetch('https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/cart')
       },
     ],
   },

@@ -21,7 +21,7 @@ const CartCard = ({ displayCart }) => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/cart/${_id}`, {
+                fetch(`https://assignment-10-server-5gmm1h75x-ikmat-rabib.vercel.app/cart/${_id}`, {
                     method: "DELETE",
 
                 })
