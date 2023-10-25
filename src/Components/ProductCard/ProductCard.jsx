@@ -7,7 +7,7 @@ const ProductCard = ({displayProduct}) => {
     const { name, image, type, brand, price, rating, _id} = displayProduct;
 
     return (
-        <div className="card w-96 mx-auto glass shadow-xl">
+        <div className="card w-96 flex justify-center glass shadow-xl ">
             <figure className="h-40 w-auto bg-cover"><img src={image} alt="" /></figure>
             <div className="card-body text-center">
                 <h2 className="card-title mx-auto">{name}</h2>
